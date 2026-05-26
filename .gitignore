@@ -1,0 +1,31 @@
+# editors workspace
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
+
+# logs
+*.log
+nohup.out
+
+# env / secrets
+.env
+.env.*
+*.pem
+*.key
+*.secret
+
+# temporary files
+tmp/
+temp/
+.cache/
+
+# bash artifacts
+*.bak
+*.tmp
+
+# downloaded/generated validator files
+validators.toml
+forkpoint*
+snapshot*
