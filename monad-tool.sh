@@ -32,8 +32,8 @@ MF_BUCKET="https://bucket.monadinfra.com"
 print_banner() {
     clear
     echo -e "${PURPLE}╔══════════════════════════════════════════════════════╗${NC}"
-    echo -e "${PURPLE}║${NC}  ${BOLD}${CYAN}⬡ MONAD VALIDATOR MANAGEMENT TOOL v1.0${NC}             ${PURPLE}║${NC}"
-    echo -e "${PURPLE}║${NC}  ${BOLD}MegaNode${NC}                                 ${PURPLE}║${NC}"
+    echo -e "${PURPLE}║${NC}  ${BOLD}${CYAN}⬡ MONAD VALIDATOR MANAGEMENT TOOL v1.0${NC}             ${PURPLE} ║${NC}"
+    echo -e "${PURPLE}║${NC}  ${BOLD}MegaNode${NC}                                           ${PURPLE} ║${NC}"
     echo -e "${PURPLE}╚══════════════════════════════════════════════════════╝${NC}"
     echo ""
 }
