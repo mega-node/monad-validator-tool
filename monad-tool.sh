@@ -32,8 +32,8 @@ MF_BUCKET="https://bucket.monadinfra.com"
 print_banner() {
     clear
     echo -e "${PURPLE}╔══════════════════════════════════════════════════════╗${NC}"
-    echo -e "${PURPLE}║${NC}  ${BOLD}${CYAN}⬡ MONAD VALIDATOR MANAGEMENT TOOL v1.0${NC}             ${PURPLE}║${NC}"
-    echo -e "${PURPLE}║${NC}  ${BOLD}MegaNode${NC}                                 ${PURPLE}║${NC}"
+    echo -e "${PURPLE}║${NC}  ${BOLD}${CYAN}⬡ MONAD VALIDATOR MANAGEMENT TOOL v1.0${NC}             ${PURPLE} ║${NC}"
+    echo -e "${PURPLE}║${NC}  ${BOLD}MegaNode${NC}                                           ${PURPLE} ║${NC}"
     echo -e "${PURPLE}╚══════════════════════════════════════════════════════╝${NC}"
     echo ""
 }
@@ -187,6 +187,22 @@ quick_status() {
             echo -e "  $svc: since $since"
         fi
     done
+
+    # Monad Version
+    echo -e "\n${BOLD}Monad Version:${NC}"
+    if command -v monad-rpc &>/dev/null; then
+        local version_info tag commit
+        version_info=$(monad-rpc --version 2>/dev/null)
+        tag=$(echo "$version_info" | grep -oP '"tag":"\K[^"]+')
+        commit=$(echo "$version_info" | grep -oP '"commit":"\K[^"]+' | cut -c1-12)
+        if [ -n "$tag" ]; then
+            echo -e "  monad-rpc: ${GREEN}${tag}${NC} (${commit})"
+        else
+            echo -e "  monad-rpc: ${YELLOW}N/A${NC}"
+        fi
+    else
+        echo -e "  monad-rpc: ${YELLOW}binary not found in PATH${NC}"
+    fi
 
     press_enter
 }
